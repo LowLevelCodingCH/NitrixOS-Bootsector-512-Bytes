@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+
+echo "Installing required packages... \n"
+sudo apt install nasm
+echo "Nasm: installed, going for qemu-system-x86\n"
+sudo apt-get install qemu-system-x86
+echo "Qemu-system-x86: installed\n"
+echo "Installed required packages... \n"
+echo "Installed: qemu-system-x86, nasm\n"
+

@@ -1,0 +1,18 @@
+#!/usr/bin/python3
+
+import os
+os.system("sudo -i")
+os.system("clear")
+while True:
+    inp = input("\u001b[36mC:\\\033[1;31mbootloader_make~: \033[96m\u001b[30m")
+    if inp == "clear":
+        os.system("clear")
+    if inp == "start -asm":
+        os.system("nasm -f bin -o bootloader.bin bootloader.asm && dd if=/dev/zero of=bootloader.img bs=512 count=2880 && dd if=bootloader.bin of=bootloader.img bs=512 conv=notrunc && sudo qemu-system-x86_64 -hda bootloader.img")
+        os.system("sh delfile.sh")
+    if inp == "start -c":
+        os.system("gcc -m16 -ffreestanding -c bootloader.c -o bootloader.o && ld -m elf_i386 -o bootloader.elf -Ttext=0x7C00 --oformat=binary bootloader.o && qemu-system-i386 bootloader.elf")
+    if inp == "stopp":
+        break
+    if inp == "hilfe":
+        print("Schreibe: `start` um zu starten, `stopp` um zu stoppen und `hilfe` um Hilfe zu kriegen...")
