@@ -209,6 +209,10 @@ errmake:
     int 0x10
     mov al, 0x0a
     int 0x10
+    mov al, '0'
+    int 0x10
+    mov al, 'x'
+    int 0x10
     mov al, '1'
     int 0x10
     mov al, 0x0a
